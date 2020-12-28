@@ -71,13 +71,19 @@ public class EyeHandler extends HttpServlet {
 	     
 	        	 out.println("<p><h3>Time: " + time + "</h3></p>");
 	        	 
-	        	 String datetime=date+time;
-	     
-	        	 ResultSet rs=stmt.executeQuery("select name,email from login order by name desc limit 1");
-				 String name=rs.getString("name");
-				 String email=rs.getString("email");
+	        	 String datetime=date+" "+time;
+	        	 System.out.println(datetime);
+	        	 ResultSet rs=stmt.executeQuery("select name,email from login order by id desc limit 1");
+	        	 String customer="";
+	        	 String email="";
+	        	 while(rs.next())
+	        	 {
+				 customer=rs.getString("name");
+				 email=rs.getString("email");
 				 
-	        	 String insert_query = "insert into booking values ('"+name+"','"+email+"','"+specialist+"','"+datetime+"')";
+				 System.out.println("name:"+customer+" email:"+email);
+	        	 }
+	        	 String insert_query = "insert into booking values ('"+customer+"','"+email+"','"+specialist+"',"+datetime+")";
 				    
 	        	 stmt.executeUpdate(insert_query);
 	         

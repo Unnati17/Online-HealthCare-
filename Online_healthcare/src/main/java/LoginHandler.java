@@ -74,6 +74,7 @@ public class LoginHandler extends HttpServlet {
 				 {
 					 out.println("<h2>Login Successful!!</h2>");
 					 out.println("<a href='ChooseSpecialist.jsp'>Book appointment</a>");
+					 
 				 }
 				 else
 				 {
@@ -82,10 +83,16 @@ public class LoginHandler extends HttpServlet {
 					 
 				 }
 				 
+				 int id=0;
+				 
 				 ResultSet st=stmt.executeQuery("select name from registration_info where email='"+nemail+"'");
-				 String get_name=st.getString("name");
-				 System.out.println(get_name);
-				 String insert_query = "insert into login values ('"+get_name+"', '"+nemail+"')";
+				 String get_name="";
+				 while(st.next())
+				 {
+					 get_name=st.getString("name");
+				 }
+				 id++;
+				 String insert_query = "insert into login values ('"+get_name+"','"+nemail+"',"+id+")";
 		         stmt.executeUpdate(insert_query);
 					 
 	         out.println("</body></html>");
