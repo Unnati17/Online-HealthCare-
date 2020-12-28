@@ -20,6 +20,34 @@
   	<description></description>
   	<servlet-class>SessionManagement</servlet-class>
   </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>EyeHandler</display-name>
+  	<servlet-name>EyeHandler</servlet-name>
+  	<servlet-class>EyeHandler</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>ChildHandler</display-name>
+  	<servlet-name>ChildHandler</servlet-name>
+  	<servlet-class>ChildHandler</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>DentistHandler</display-name>
+  	<servlet-name>DentistHandler</servlet-name>
+  	<servlet-class>DentistHandler</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>SkinHandler</display-name>
+  	<servlet-name>SkinHandler</servlet-name>
+  	<servlet-class>SkinHandler</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginHandler</servlet-name>
   	<url-pattern>/LoginHandler</url-pattern>
@@ -31,5 +59,21 @@
   <servlet-mapping>
   	<servlet-name>SessionManagement</servlet-name>
   	<url-pattern>/SessionManagement</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EyeHandler</servlet-name>
+  	<url-pattern>/EyeHandler</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ChildHandler</servlet-name>
+  	<url-pattern>/ChildHandler</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DentistHandler</servlet-name>
+  	<url-pattern>/DentistHandler</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SkinHandler</servlet-name>
+  	<url-pattern>/SkinHandler</url-pattern>
   </servlet-mapping>
 </web-app>

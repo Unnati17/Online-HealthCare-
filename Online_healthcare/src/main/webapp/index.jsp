@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
-  <title>User Input Form</title>
+<meta charset="ISO-8859-1">
+<title>HealthCare Management</title>
+<link rel="icon" href="C:\Users\zaid hasan\Desktop\Enterprise Web Applications\logo.png" type="image/x-icon">
+<link rel="stylesheet" href="./css/webstyle.css" type="text/css" />
+<link href="./css/webstyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h2>Hello World!</h2>
+ <style>
+ 	h1{
+ 		text-align: center;
+	    font-family : Candara;
+ 	}
+ 	a{
+ 		float : left;
+ 		
+ 	}
+ </style>
+  <h1>HealthCare Management</h1>
+  <a href="Login.jsp">Login</a><br>
+  <a href="Registration.jsp">Registration</a><br>
+  <a href="AboutUs.jsp">About Us</a><br>
 </body>
 </html>

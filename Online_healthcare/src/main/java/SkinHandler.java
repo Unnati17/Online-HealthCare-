@@ -1,7 +1,11 @@
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,15 +13,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class LoginHandler
+ * Servlet implementation class SkinHandler
  */
-public class LoginHandler extends HttpServlet {
+public class SkinHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginHandler() {
+    public SkinHandler() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,7 +39,7 @@ public class LoginHandler extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
+		doGet(request, response);
 		
 		response.setContentType("text/html; charset=UTF-8");
 	      // Allocate a output writer to write the response message into the network socket
@@ -47,47 +51,34 @@ public class LoginHandler extends HttpServlet {
 	         out.println("<html><head>");
 	         out.println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");
 	         out.println("<title>Echo Servlet</title></head>");
+	         out.println("<body><h2>APPOINTEMENT SUMMARY</h2>");
 	         
 	         Class.forName("com.mysql.cj.jdbc.Driver");
 	         
-	         Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/online_healthcare","root","Ujjw@l.16");
+	         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_healthcare","root","Ujjw@l.16");
 	         
-	         Statement stmt=con.createStatement();
+	         Statement stmt = con.createStatement();
 	         
-	         ResultSet rs=stmt.executeQuery("select * from registration_info");
-				
-	         String email="";
-	         String pass="";
-	         String auth_id="";
-				while(rs.next())
-				{
-					email=rs.getString("email");
-					pass=rs.getString("password");
-					auth_id=rs.getString("authentication");
-				}
-			 	    
-				 String nemail = request.getParameter("email");
-				 String npass=request.getParameter("pass");
-				 String nauth_id=request.getParameter("auth_id");
-				 
-				 if(nemail.equals(email) && npass.equals(pass) && nauth_id.equals(auth_id))
-				 {
-					 out.println("<h2>Login Successful!!</h2>");
-					 out.println("<a href='ChooseSpecialist.jsp'>Book appointment</a>");
-				 }
-				 else
-				 {
-					 out.println("<h2>Error in Login Try Again!!<h2>");
-					 out.println("<a href='Login.jsp'>Login</a>");
-					 
-				 }
-				 
-				 ResultSet st=stmt.executeQuery("select name from registration_info where email='"+nemail+"'");
-				 String get_name=st.getString("name");
-				 System.out.println(get_name);
-				 String insert_query = "insert into login values ('"+get_name+"', '"+nemail+"')";
-		         stmt.executeUpdate(insert_query);
-					 
+	         out.println("<h2>Hostipal : Uma Sanjivni Hospital</h2>");
+	         out.println("<h3>Doctor's Name : Dr. Raman</h3>");
+	         
+	         String specialist="Dr. Raman";
+	         
+	         String date = request.getParameter("Date");
+	        
+	        	 out.println("<p><h3>Date: " +date + "</h3></p>");
+	         
+	         String time=request.getParameter("selectbox");
+	     
+	        	 out.println("<p><h3>Time: " + time + "</h3></p>");
+	        	 
+	        	 String datetime=date+time;
+	        	 
+	        	 
+	        	 String insert_query = "insert into booking values ('"+specialist+"','"+datetime+"')";
+				    
+	        	 int record = stmt.executeUpdate(insert_query);
+	         
 	         out.println("</body></html>");
 	         
 	      } catch (ClassNotFoundException e) {
