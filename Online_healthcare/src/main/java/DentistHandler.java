@@ -89,7 +89,7 @@ public class DentistHandler extends HttpServlet {
 				    
 	        	 stmt.executeUpdate(insert_query);
 	        	 
-	        	 out.println("<meta http-equiv=\"refresh\" content=\"0 url = ThankYou.jsp\">");
+	        	 out.println("<meta http-equiv=\"refresh\" content=\"3 url = ThankYou.jsp\">");
 	         
 	         out.println("</body></html>");
 	         

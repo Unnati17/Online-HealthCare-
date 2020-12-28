@@ -33,6 +33,7 @@
 	</style>
 	<a href="RegistrationEditor.jsp">edit profile</a><br>
 	<a href = "BookingEditor.jsp">edit booking</a>
+	<a href = "BookingDeleter.jsp">delete booking</a>
 	<h1>Choose Your Specialist : </h1>
 	<input type=button onClick="parent.location='Child.jsp'" value='Child' name="Child">
 	<input type=button onClick="parent.location='Eye.jsp'" value='Eye' name="eye">

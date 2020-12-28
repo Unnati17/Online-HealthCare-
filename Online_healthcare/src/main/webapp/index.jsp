@@ -21,6 +21,5 @@
   <h1>HealthCare Management</h1>
   <a href="Login.jsp">Login</a><br>
   <a href="Registration.jsp">Registration</a><br>
-  <a href="AboutUs.jsp">About Us</a><br>
 </body>
 </html>

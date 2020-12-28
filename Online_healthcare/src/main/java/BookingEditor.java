@@ -53,10 +53,10 @@ public class BookingEditor extends HttpServlet {
 		         Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/online_healthcare","root","Ujjw@l.16");
 		         
 		         Statement stmt=con.createStatement();
-		         String auth = request.getParameter("aut");
+		         String email = request.getParameter("email");
 		         String date2 = request.getParameter("ndate");
 		         
-		         String update_query="update booking set datetime='"+date2+"' where email='"+auth+"' ";
+		         String update_query="update booking set date='"+date2+"' where email='"+email+"' ";
 		         int recordu=stmt.executeUpdate(update_query);
 		         if(recordu==1) {
 		        	 out.println("<h2>Update Successful!!</h2>");

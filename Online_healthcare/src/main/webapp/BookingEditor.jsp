@@ -9,7 +9,7 @@
 <form method="post" action="/Online_healthcare/BookingEditor">
   <fieldset>
    
-    Enter Email: <input type="text" name="aut" /><br /><br />
+    Enter Email: <input type="text" name="email" /><br /><br />
     New Date: <input type="text" name="ndate" /><br /><br />
      <input type="submit" value="SUBMIT" />
  
