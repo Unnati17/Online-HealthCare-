@@ -71,8 +71,6 @@ public class EyeHandler extends HttpServlet {
 	     
 	        	 out.println("<p><h3>Time: " + time + "</h3></p>");
 	        	 
-	        	// String datetime=date+" "+time;
-	        	 
 	        	 ResultSet rs=stmt.executeQuery("select * from login");
 	        	 String customer="";
 	        	 String email="";
@@ -80,8 +78,7 @@ public class EyeHandler extends HttpServlet {
 	        	 {
 				 customer=rs.getString("name");
 				 email=rs.getString("email");
-				 
-				 System.out.println("name:"+customer+" email:"+email);
+			
 	        	 }
 	        	 String insert_query = "insert into booking values ('"+customer+"','"+email+"','"+specialist+"','"+date+"','"+time+"')";
 				    
