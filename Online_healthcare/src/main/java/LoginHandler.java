@@ -4,9 +4,11 @@ import java.io.PrintWriter;
 import java.sql.*;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginHandler
@@ -28,6 +30,41 @@ public class LoginHandler extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		boolean newbie=true;
+		
+		//fetch cookies info using request object
+		Cookie[] cookies=request.getCookies();
+		
+		if(cookies==null)
+		{
+			System.out.println("Newbie");
+			newbie=true;
+		}
+		else
+		{
+			for(int i=0;i<cookies.length;i++)
+			{
+				if(cookies[i].getName().equals("repeatedVisitor") && (cookies[i].getValue().equals("yes")))
+				{
+					newbie=false;
+					break;
+				}
+			}
+			System.out.println("Not a newbie");
+		
+		}
+		
+		if(newbie==true)
+		{
+			Cookie visitorCookie=new Cookie("repeatedVisitor","yes");
+			visitorCookie.setMaxAge(60*60*24*7);
+			response.addCookie(visitorCookie);
+			
+		}
+
+		
+		
 	}
 
 	/**
@@ -38,10 +75,9 @@ public class LoginHandler extends HttpServlet {
 		//doGet(request, response);
 		
 		response.setContentType("text/html; charset=UTF-8");
-	      // Allocate a output writer to write the response message into the network socket
+	      
 	      PrintWriter out = response.getWriter();
 	 
-	      // Write the response message, in an HTML page
 	      try {
 	         out.println("<!DOCTYPE html>");
 	         out.println("<html><head>");
@@ -72,8 +108,7 @@ public class LoginHandler extends HttpServlet {
 				 
 				 if(nemail.equals(email) && npass.equals(pass) && nauth_id.equals(auth_id))
 				 {
-					 out.println("<h2>Login Successful!!</h2>");
-					 out.println("<a href='ChooseSpecialist.jsp'>Book appointment</a>");
+					 out.println("<meta http-equiv=\"refresh\" content=\"0 url = ChooseSpecialist.jsp\">");
 					 
 				 }
 				 else
@@ -83,7 +118,6 @@ public class LoginHandler extends HttpServlet {
 					 
 				 }
 				 
-				 int id=0;
 				 
 				 ResultSet st=stmt.executeQuery("select name from registration_info where email='"+nemail+"'");
 				 String get_name="";
@@ -91,8 +125,8 @@ public class LoginHandler extends HttpServlet {
 				 {
 					 get_name=st.getString("name");
 				 }
-				 id++;
-				 String insert_query = "insert into login values ('"+get_name+"','"+nemail+"',"+id+")";
+				 
+				 String insert_query = "insert into login values ('"+get_name+"','"+nemail+"')";
 		         stmt.executeUpdate(insert_query);
 					 
 	         out.println("</body></html>");

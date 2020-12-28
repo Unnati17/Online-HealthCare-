@@ -27,7 +27,7 @@
 	<h1>Select date and time of the appointment</h1><br><br>
 	<h3>Hostipal : Paras Hospital</h2>
 	<h3>Doctor's Name : Dr. Lubna</h2>
-	<h3>Date : <input type="Date" name="Date"></h2>
+	<h3>Date : <input type="date" name="Date"></h2>
 	<h3>Time : <select name = "selectbox" id = "selectbox">
   				<option value="08:00:00">8:00</option>
   				<option value="09:00:00">9:00</option>

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -74,10 +75,21 @@ public class SkinHandler extends HttpServlet {
 	        	 
 	        	 String datetime=date+time;
 	        	 
-	        	 
-	        	 String insert_query = "insert into booking values ('"+specialist+"','"+datetime+"')";
+	        	 ResultSet rs=stmt.executeQuery("select * from login");
+	        	 String customer="";
+	        	 String email="";
+	        	 while(rs.next())
+	        	 {
+				 customer=rs.getString("name");
+				 email=rs.getString("email");
+				 
+				 System.out.println("name:"+customer+" email:"+email);
+	        	 }
+	        	 String insert_query = "insert into booking values ('"+customer+"','"+email+"','"+specialist+"','"+datetime+"')";
 				    
-	        	 int record = stmt.executeUpdate(insert_query);
+	        	 stmt.executeUpdate(insert_query);
+	        	 
+	        	 out.println("<meta http-equiv=\"refresh\" content=\"3 url = ThankYou.jsp\">");
 	         
 	         out.println("</body></html>");
 	         

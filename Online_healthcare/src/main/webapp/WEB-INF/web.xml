@@ -48,6 +48,27 @@
   	<servlet-name>SkinHandler</servlet-name>
   	<servlet-class>SkinHandler</servlet-class>
   </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>BookingEditor</display-name>
+  	<servlet-name>BookingEditor</servlet-name>
+  	<servlet-class>BookingEditor</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>BookingDeleter</display-name>
+  	<servlet-name>BookingDeleter</servlet-name>
+  	<servlet-class>BookingDeleter</servlet-class>
+  </servlet>
+	<servlet>
+  	<description>
+  	</description>
+  	<display-name>RegistrationEditor</display-name>
+  	<servlet-name>RegistrationEditor</servlet-name>
+  	<servlet-class>RegistrationEditor</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginHandler</servlet-name>
   	<url-pattern>/LoginHandler</url-pattern>
@@ -75,5 +96,17 @@
   <servlet-mapping>
   	<servlet-name>SkinHandler</servlet-name>
   	<url-pattern>/SkinHandler</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BookingEditor</servlet-name>
+  	<url-pattern>/BookingEditor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BookingDeleter</servlet-name>
+  	<url-pattern>/BookingDeleter</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegistrationEditor</servlet-name>
+  	<url-pattern>/RegistrationEditor</url-pattern>
   </servlet-mapping>
 </web-app>

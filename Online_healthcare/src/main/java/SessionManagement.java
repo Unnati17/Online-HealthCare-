@@ -35,12 +35,9 @@ public class SessionManagement extends HttpServlet {
 	      
 	      PrintWriter out = response.getWriter();
 
-	      // Return the existing session if there is one. Create a new session otherwise.
-	      // Step 1: Initiate a session
 	      HttpSession session = request.getSession();
 	      Integer accessCount;
 
-	      // Step 2: Get the session attributes --> increment the access count
 	      accessCount = (Integer)session.getAttribute("visits");
 	         if (accessCount == null) 
 	         {
@@ -50,11 +47,8 @@ public class SessionManagement extends HttpServlet {
 //	        	 accessCount = new Integer(accessCount + 1);
 	         }
 
-	       // Step 3: Set the session attributes - Track the access counts
 	         session.setAttribute("visits", accessCount);
 
-
-	      // Write the response message, in an HTML page
 	      try {
 	         out.println("<!DOCTYPE html>");
 	         out.println("<html>");
@@ -74,10 +68,10 @@ public class SessionManagement extends HttpServlet {
 	         out.println("<p><a  href='" + response.encodeURL(request.getRequestURI())  +
 	                     "'>Refresh with  URL rewriting</a>");
 	         out.println("</body></html>");
-	         // Step 4: Invalidate the session
+	        
 //	         session.invalidate();
 	      } finally {
-	         out.close();  // Always close the output writer
+	         out.close(); 
 	      }
 	}
 

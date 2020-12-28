@@ -42,10 +42,9 @@ public class RegistrationHandler extends HttpServlet {
 		//doGet(request, response);
 		
 		response.setContentType("text/html; charset=UTF-8");
-	      // Allocate a output writer to write the response message into the network socket
+	      
 	      PrintWriter out = response.getWriter();
-	 
-	      // Write the response message, in an HTML page
+
 	      try {
 	         out.println("<!DOCTYPE html>");
 	         out.println("<html><head>");
@@ -111,11 +110,7 @@ public class RegistrationHandler extends HttpServlet {
 	         String id=name.substring(0,3)+'@'+age;
 	      
 	        	 out.println("<p>Authentication ID: " + id + "</p>");
-	         
-	      // Retrieve the value of the query parameter "secret" (from hidden field)
-	         String secret = request.getParameter("secret");
-	         out.println("<p>Secret: " + secret + "</p>");
-	      // Hyperlink "BACK" to input page
+	       
 	        out.println("<a href='Registration.jsp'>BACK</a>");
 	 
 	         out.println("</body></html>");
@@ -125,9 +120,9 @@ public class RegistrationHandler extends HttpServlet {
 	         int record = stmt.executeUpdate(insert_query);
 	         
 	         if(record == 1) {
-	        	 	out.println("<h2>Registered Successfully!!</h2>");
+	        	 	System.out.println("Registered Successfully!!");
 	         }else {
-	        	 out.println("<h2>Error in registration!!<h2>");
+	        	 System.out.println("Error in registration!!");
 	         }
 	         
 	         out.println("<a href='Login.jsp'>Login</a>");

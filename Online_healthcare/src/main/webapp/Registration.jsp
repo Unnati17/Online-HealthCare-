@@ -10,7 +10,7 @@
 <form method="post" action="/Online_healthcare/RegistrationHandler" name="form2">
 <table width="900" align=center>
 	<tr>
-	<td colspan="2"><%@ include file="/people_header.jsp" %></td>
+	<td colspan="2"><%@ include file="/style_header.jsp" %></td>
     </tr>
 	<tr >
 	<td colspan="2">
@@ -41,7 +41,7 @@
 	</table>
 	</td></tr>
 	<tr>
-		<td colspan="2"><%@include file="/people_footer.jsp"%></td>
+		<td colspan="2"><%@include file="/style_footer.jsp"%></td>
 	</tr>
 	</table>
 </form></body></html> 
